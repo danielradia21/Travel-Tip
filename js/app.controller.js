@@ -28,7 +28,7 @@ function renderTableLocs(places) {
   elTbody.innerHTML = strHtmls.join("");
 }
 
-function onRemoveLoc(id){-
+function onRemoveLoc(id){
     locService.removeLoc(id)
 }
 
