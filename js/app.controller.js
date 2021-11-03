@@ -7,6 +7,7 @@ window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
 window.onRemoveLoc = onRemoveLoc;
 window.onMoveToLoc = onMoveToLoc;
+window.onCopyLoc = onCopyLoc;
 
 function onInit() {
   mapService
@@ -31,6 +32,8 @@ function onRemoveLoc(id) {
   locService.removeLoc(id, renderTableLocs);
 }
 
+
+
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
 function getPosition() {
   return new Promise((resolve, reject) => {
@@ -45,6 +48,7 @@ function onGetLocs() {
 }
 
 function onGetUserPos() {
+   
   getPosition()
     .then((pos) => {
       mapService.panTo(pos.coords.latitude, pos.coords.longitude);
@@ -63,3 +67,8 @@ function onMoveToLoc() {
 function onPanTo(lat, lng) {
   mapService.panTo(lat, lng);
 }
+
+function onCopyLoc(){
+   mapService.copyLoc();
+}
+

@@ -83,6 +83,7 @@ header {
   width: 100%;
 }
 
+<<<<<<< HEAD
 .rows td {
   background-color: navajowhite;
   width: 33%;
@@ -109,4 +110,9 @@ button {
 
 button:active{
   transform: scale(0.9);
+=======
+
+.hide{
+  visibility:hidden;
+>>>>>>> c783091e0747b6f52fbe0c55314ead610ee693e9
 }

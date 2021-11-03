@@ -1,23 +1,27 @@
 import { Storage } from "./storage.service.js";
 
 export const locService = {
-  getLocs,
+//   getLocs,
   removeLoc,
 };
 
+
 const KEY  ='locsDB'
 
-const locs = [
-  {
-    id:'101',
-    name: "Greatplace",
-    lat: 32.047104,
-    lng: 34.832384,
-    weather: "TODO",
-    createdAt: Date.now(),
-    updatedAt: "TODO",
-  },
-];
+// const locs = [
+//   {
+//     id:'101',
+//     name: "Greatplace",
+//     lat: 32.047104,
+//     lng: 34.832384,
+//     weather: "TODO",
+//     createdAt: Date.now(),
+//     updatedAt: "TODO",
+//   },
+// ];
+
+
+
 
 function getLocs() {
   return new Promise((resolve, reject) => {

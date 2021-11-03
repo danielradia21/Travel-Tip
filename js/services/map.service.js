@@ -1,5 +1,5 @@
 import { Storage } from "./storage.service.js";
-import { utils } from "./util.service.js";
+import { utils } from "./utils.service.js";
 
 const KEY = "locsDB";
 
@@ -8,6 +8,7 @@ export const mapService = {
   addMarker,
   panTo,
   moveToLoc,
+  copyLoc
 };
 
 var gMap;
@@ -104,9 +105,11 @@ function moveToLoc(locName) {
     });
 }
 
-// function getAddress(address) {
-//   return address;
-// }
+function copyLoc(){
+    var locs = Storage.load(KEY)
+    if(!locs || !locs.length) return 
+    var loc = locs[locs.length-1]
+    // window.location.href = `https://danielradia21.github.io/Travel-Tip/?lat=${loc.lat}&lng=${loc.lng}`
 
-// results[0].formatted_address
-// results[0].geometry.location
+}
+
