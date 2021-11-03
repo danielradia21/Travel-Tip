@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>TravelTip</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <header>
+            <h1>TravelTip</h1>
+            <div class="nav">
+                <input type="text" placeholder="Enter Location">
+                <button>Go</button>
+            </div>
+            <button>My Location</button>
+        </header>
+
+        <section class="sub-header">
+            <h2>location: <span>the city, the state</span></h2>
+            <button>Copy Location</button>
+        </section>
+
+        <section class="content-container">
+            <div class="left">
+                <aside class="Weather">Weather Today</aside>
+                <table class="location-list">
+                    <thead>
+                        <tr>
+                            <th>state</th>
+                            <th>city</th>
+                            <th>blabla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>to render</td>
+                            <td>to render</td>
+                            <td>to render</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right">
+                <div class="map" id="map"></div>
+            </div>
+        </section>
+
+        <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
+        <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
+        <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+        <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
+
+        <p>You are at: <span class="user-pos"></span></p>
+        <p>Locations: <span class="locs"></span></p>
+
+    </main>
+
+    <script type="module" src="js/app.controller.js"></script>
+</body>
+
+</html>
