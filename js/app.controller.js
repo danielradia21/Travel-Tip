@@ -6,6 +6,7 @@ window.onAddMarker = onAddMarker;
 window.onPanTo = onPanTo;
 window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
+window.onRemoveLoc = onRemoveLoc;
 
 function onInit() {
   mapService
@@ -20,11 +21,15 @@ function renderTableLocs(places) {
     return `<tr>
         <td>${place.name}</td>
         <td><button onclick="onPanTo(${place.lat},${place.lng})">Go There</button></td>
-        <td><button onclick="removePlace(${place.id})">X</button></td>
+        <td><button onclick="onRemoveLoc(${place.id})">X</button></td>
     </tr>`;
   });
   var elTbody = document.querySelector(".table-body");
   elTbody.innerHTML = strHtmls.join("");
+}
+
+function onRemoveLoc(id){-
+    locService.removeLoc(id)
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition

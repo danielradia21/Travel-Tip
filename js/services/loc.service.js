@@ -1,6 +1,9 @@
 export const locService = {
   getLocs,
+  removeLoc,
 };
+
+const KEY  ='locsDB'
 
 const locs = [
   {
@@ -20,4 +23,14 @@ function getLocs() {
       resolve(locs);
     }, 2000);
   });
+}
+
+function removeLoc(id) {
+    var locs = Storage.load(KEY)
+    var removeIdx = locs.findIndex((loc) => {
+        return loc.id === id;
+    });
+    locs.splice(removeIdx, 1);
+    Storage.save(KEY,locs);
+    
 }

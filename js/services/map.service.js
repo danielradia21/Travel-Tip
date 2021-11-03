@@ -46,15 +46,6 @@ function addMarker(loc, title) {
   return marker;
 }
 
-function removePlace() {
-    var places = Storage.load(KEY)
-    var removeIdx = gPlaces.findIndex((place) => {
-        return gPlaces[place] === place;
-    });
-    gPlaces.splice(removeIdx, 1);
-    saveToTheStorage(gPlaces);
-    renderCords();
-}
 
 
 function panTo(lat, lng) {
