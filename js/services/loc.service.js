@@ -1,3 +1,5 @@
+import { Storage } from "./storage.service.js";
+
 export const locService = {
   getLocs,
   removeLoc,
@@ -25,12 +27,12 @@ function getLocs() {
   });
 }
 
-function removeLoc(id) {
+function removeLoc(id,cb) {
     var locs = Storage.load(KEY)
     var removeIdx = locs.findIndex((loc) => {
         return loc.id === id;
     });
     locs.splice(removeIdx, 1);
     Storage.save(KEY,locs);
-    
+    cb(locs)
 }
