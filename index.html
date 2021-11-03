@@ -15,13 +15,13 @@
 
             <div class="nav">
                 <input name="user-loc" type="text" placeholder="Enter Location">
-                <button onclick="onMoveToLoc()">Go</button>
+                <button onclick="onMoveToLoc()">Go !</button>
             </div>
             <button onclick="onGetUserPos()">My Location</button>
         </header>
 
         <section class="sub-header">
-            <h2>location: <span class="Input-loc">the city, the state</span></h2>
+            <h2>Location: <span class="Input-loc">Amsterdam, Netherlands</span></h2>
             <button onclick="onCopyLoc()">Copy Location</button>
         </section>
 
@@ -32,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>Place Name</th>
-                            <th>Actions</th>
+                            <th colspan="2">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="table-body">
@@ -44,12 +44,6 @@
                 <div class="map" id="map"></div>
             </div>
         </section>
-
-        <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-        <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
-
-        <p>You are at: <span class="user-pos"></span></p>
-        <p>Locations: <span class="locs"></span></p>
 
     </main>
     <script src="lib/axios.min.js"></script>

@@ -18,10 +18,10 @@ function onInit() {
 
 function renderTableLocs(locs) {
   var strHtmls = locs.map((loc) => {
-    return `<tr>
+    return `<tr class="rows">
         <td>${loc.name}</td>
-        <td><button onclick="onPanTo(${loc.lat},${loc.lng})">Go There</button></td>
-        <td><button onclick="onRemoveLoc('${loc.id}')">X</button></td>
+        <td><button class="go-there" onclick="onPanTo(${loc.lat},${loc.lng})">Go There</button></td>
+        <td><button class="remove" onclick="onRemoveLoc('${loc.id}')">X</button></td>
     </tr>`;
   });
   var elTbody = document.querySelector(".table-body");
