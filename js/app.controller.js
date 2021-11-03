@@ -7,6 +7,7 @@ window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
 window.onRemoveLoc = onRemoveLoc;
 window.onMoveToLoc = onMoveToLoc;
+window.onCopyLoc = onCopyLoc;
 
 function onInit() {
   mapService
@@ -65,5 +66,9 @@ function onMoveToLoc() {
 
 function onPanTo(lat, lng) {
   mapService.panTo(lat, lng);
+}
+
+function onCopyLoc(){
+   mapService.copyLoc()
 }
 
