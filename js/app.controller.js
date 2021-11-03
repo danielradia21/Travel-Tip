@@ -15,15 +15,12 @@ function onInit() {
 }
 
 function renderTableLocs(places) {
-  console.log(places);
-
+    console.log(places);
   var strHtmls = places.map((place) => {
     return `<tr>
         <td>${place.name}</td>
-        <td><button onclick="onPanTo(${
-          (place.lat, place.lng)
-        })">Go There</button></td>
-        <td><button onclick="removePlace(this)">X</button></td>
+        <td><button onclick="onPanTo(${place.lat},${place.lng})">Go There</button></td>
+        <td><button onclick="removePlace(${place.id})">X</button></td>
     </tr>`;
   });
   var elTbody = document.querySelector(".table-body");
@@ -63,7 +60,8 @@ function onGetUserPos() {
     });
 }
 function onPanTo(lat, lng) {
+    console.log(lat,lng);
   console.log("Panning the Map");
-  1;
+  
   mapService.panTo(lat, lng);
 }

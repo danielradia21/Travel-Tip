@@ -1,5 +1,7 @@
 import { Storage } from "./storage.service.js";
 
+const KEY  ='locsDB'
+
 export const mapService = {
   initMap,
   addMarker,
@@ -23,15 +25,15 @@ function initMap(cb, lat = 32.0749831, lng = 34.9120554) {
       addMarker(event.latLng, placeName);
 
       console.log(placeName);
-      var locs = Storage.load("locsDB");
+      var locs = Storage.load(KEY);
       if (!locs || !locs.length) {
         locs = [];
       }
-      locs.push({ id: "101", name: placeName, lat, lng, weather: "summer" });
-      Storage.save("locsDB", locs);
+      locs.push({ id: "101", name: placeName, lat, lng, weather: "summer" , createdAt:Date.now(), updatedAt:Date.now()});
+      Storage.save(KEY, locs);
       cb(locs);
     });
-    return Promise.resolve(Storage.load("locsDB"));
+    return Promise.resolve(Storage.load(KEY));
   });
 }
 
@@ -43,6 +45,17 @@ function addMarker(loc, title) {
   });
   return marker;
 }
+
+function removePlace() {
+    var places = Storage.load(KEY)
+    var removeIdx = gPlaces.findIndex((place) => {
+        return gPlaces[place] === place;
+    });
+    gPlaces.splice(removeIdx, 1);
+    saveToTheStorage(gPlaces);
+    renderCords();
+}
+
 
 function panTo(lat, lng) {
   var laLatLng = new google.maps.LatLng(lat, lng);
