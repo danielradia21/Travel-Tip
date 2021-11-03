@@ -112,7 +112,7 @@ function copyLoc(){
     var locs = Storage.load(KEY)
     if(!locs || !locs.length) return 
     var loc = locs[locs.length-1]
-    // window.location.href = `https://danielradia21.github.io/Travel-Tip/?lat=${loc.lat}&lng=${loc.lng}`
+    window.location = `https://danielradia21.github.io/Travel-Tip/?lat=${loc.lat}&lng=${loc.lng}`
 
 }
 
