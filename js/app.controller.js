@@ -2,11 +2,11 @@ import { locService } from "./services/loc.service.js";
 import { mapService } from "./services/map.service.js";
 
 window.onload = onInit;
-window.onAddMarker = onAddMarker;
 window.onPanTo = onPanTo;
 window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
 window.onRemoveLoc = onRemoveLoc;
+window.onMoveToLoc = onMoveToLoc;
 
 function onInit() {
   mapService
@@ -15,13 +15,13 @@ function onInit() {
     .catch(() => console.log("Error: cannot init map"));
 }
 
-function renderTableLocs(places) {
-    console.log(places);
-  var strHtmls = places.map((place) => {
+function renderTableLocs(locs) {
+    console.log(locs);
+  var strHtmls = locs.map((loc) => {
     return `<tr>
-        <td>${place.name}</td>
-        <td><button onclick="onPanTo(${place.lat},${place.lng})">Go There</button></td>
-        <td><button onclick="onRemoveLoc(${place.id})">X</button></td>
+        <td>${loc.name}</td>
+        <td><button onclick="onPanTo(${loc.lat},${loc.lng})">Go There</button></td>
+        <td><button onclick="onRemoveLoc('${loc.id}')">X</button></td>
     </tr>`;
   });
   var elTbody = document.querySelector(".table-body");
@@ -29,8 +29,12 @@ function renderTableLocs(places) {
 }
 
 function onRemoveLoc(id){
-    locService.removeLoc(id)
+   
+    locService.removeLoc(id,renderTableLocs)
+    
 }
+
+
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
 function getPosition() {
@@ -40,10 +44,7 @@ function getPosition() {
   });
 }
 
-function onAddMarker() {
-  console.log("Adding a marker");
-  mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 });
-}
+
 
 function onGetLocs() {
   locService.getLocs().then((locs) => {
@@ -53,12 +54,11 @@ function onGetLocs() {
 }
 
 function onGetUserPos() {
+   
   getPosition()
     .then((pos) => {
-      console.log("User position is:", pos.coords);
-      document.querySelector(
-        ".user-pos"
-      ).innerText = `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`;
+    
+      onPanTo(pos.coords.latitude, pos.coords.longitude)
     })
     .catch((err) => {
       console.log("err!!!", err);
@@ -69,4 +69,9 @@ function onPanTo(lat, lng) {
   console.log("Panning the Map");
   
   mapService.panTo(lat, lng);
+}
+
+function onMoveToLoc(){
+   var locName = document.querySelector(`[name=user-loc]`).value
+   
 }

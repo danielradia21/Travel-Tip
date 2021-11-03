@@ -1,4 +1,5 @@
 import { Storage } from "./storage.service.js";
+import { utils } from "./utils.service.js";
 
 const KEY  ='locsDB'
 
@@ -29,7 +30,7 @@ function initMap(cb, lat = 32.0749831, lng = 34.9120554) {
       if (!locs || !locs.length) {
         locs = [];
       }
-      locs.push({ id: "101", name: placeName, lat, lng, weather: "summer" , createdAt:Date.now(), updatedAt:Date.now()});
+      locs.push({ id: utils.randomId(), name: placeName, lat, lng, weather: "summer" , createdAt:Date.now(), updatedAt:Date.now()});
       Storage.save(KEY, locs);
       cb(locs);
     });

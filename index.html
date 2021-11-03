@@ -14,10 +14,10 @@
             <h1>TravelTip </h1>
          
             <div class="nav">
-                <input type="text" placeholder="Enter Location">
-                <button>Go</button>
+                <input name="user-loc" type="text" placeholder="Enter Location">
+                <button onclick="onMoveToLoc()">Go</button>
             </div>
-            <button>My Location</button>
+            <button  onclick="onGetUserPos()">My Location</button>
         </header>
 
         <section class="sub-header">
@@ -45,9 +45,8 @@
             </div>
         </section>
 
-        <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
-        <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
-        <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+       
+       
         <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
 
         <p>You are at: <span class="user-pos"></span></p>

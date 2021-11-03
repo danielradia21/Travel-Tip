@@ -1,21 +1,25 @@
 export const locService = {
-  getLocs,
+//   getLocs,
   removeLoc,
 };
+import { Storage } from "./storage.service.js";
 
 const KEY  ='locsDB'
 
-const locs = [
-  {
-    id:'101',
-    name: "Greatplace",
-    lat: 32.047104,
-    lng: 34.832384,
-    weather: "TODO",
-    createdAt: Date.now(),
-    updatedAt: "TODO",
-  },
-];
+// const locs = [
+//   {
+//     id:'101',
+//     name: "Greatplace",
+//     lat: 32.047104,
+//     lng: 34.832384,
+//     weather: "TODO",
+//     createdAt: Date.now(),
+//     updatedAt: "TODO",
+//   },
+// ];
+
+
+
 
 function getLocs() {
   return new Promise((resolve, reject) => {
@@ -25,12 +29,13 @@ function getLocs() {
   });
 }
 
-function removeLoc(id) {
+function removeLoc(id,cb) {
     var locs = Storage.load(KEY)
     var removeIdx = locs.findIndex((loc) => {
         return loc.id === id;
     });
     locs.splice(removeIdx, 1);
     Storage.save(KEY,locs);
+    cb(locs)
     
 }
