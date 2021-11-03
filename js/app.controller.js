@@ -69,6 +69,6 @@ function onPanTo(lat, lng) {
 }
 
 function onCopyLoc(){
-   mapService.copyLoc()
+   mapService.copyLoc();
 }
 
