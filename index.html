@@ -12,16 +12,16 @@
     <main class="main-container">
         <header>
             <h1>TravelTip </h1>
-         
+
             <div class="nav">
                 <input name="user-loc" type="text" placeholder="Enter Location">
                 <button onclick="onMoveToLoc()">Go</button>
             </div>
-            <button  onclick="onGetUserPos()">My Location</button>
+            <button onclick="onGetUserPos()">My Location</button>
         </header>
 
         <section class="sub-header">
-            <h2>location: <span>the city, the state</span></h2>
+            <h2>location: <span class="Input-loc">the city, the state</span></h2>
             <button>Copy Location</button>
         </section>
 
@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-body">
-                 
+
                     </tbody>
                 </table>
             </div>
@@ -45,14 +45,14 @@
             </div>
         </section>
 
-       
-       
+        <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
         <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
 
         <p>You are at: <span class="user-pos"></span></p>
         <p>Locations: <span class="locs"></span></p>
 
     </main>
+    <script src="lib/axios.min.js"></script>
 
     <script type="module" src="js/app.controller.js"></script>
 </body>

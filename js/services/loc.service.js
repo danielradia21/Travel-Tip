@@ -1,8 +1,10 @@
+import { Storage } from "./storage.service.js";
+
 export const locService = {
 //   getLocs,
   removeLoc,
 };
-import { Storage } from "./storage.service.js";
+
 
 const KEY  ='locsDB'
 
@@ -37,5 +39,4 @@ function removeLoc(id,cb) {
     locs.splice(removeIdx, 1);
     Storage.save(KEY,locs);
     cb(locs)
-    
 }
