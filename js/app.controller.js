@@ -14,10 +14,12 @@ function onInit() {
   let lat = aURL.searchParams.get('lat');
   let lng = aURL.searchParams.get('lng');
   console.log(lat,lng)
-  if (lat === null && lng === null) {
+  if (lat === null || lng === null) {
     lat = 32.0749831;
     lng = 34.9120554;
   }
+  lat = parseInt(lat)
+  lng = parseInt(lng)
   mapService
     .initMap(renderTableLocs,lat,lng)
     .then((res) => renderTableLocs(res))
