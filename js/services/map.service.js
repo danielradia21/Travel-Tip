@@ -112,7 +112,11 @@ function copyLoc(){
     var locs = Storage.load(KEY)
     if(!locs || !locs.length) return 
     var loc = locs[locs.length-1]
-    window.location.assign(`https://danielradia21.github.io/Travel-Tip/?lat=${loc.lat}&lng=${loc.lng}`)
+   copyToClipboard(loc.lat,loc.lng)
 
 }
 
+function copyToClipboard(lat, lng) {
+  var link = `https://danielradia21.github.io/Travel-Tip/?lat=${lat}&lng=${lng}`
+  navigator.clipboard.writeText(link);
+}
